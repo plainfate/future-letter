@@ -1,0 +1,23 @@
+# 运行时生成的东西，绝对不要提交
+config.json
+data.db
+data.db-wal
+data.db-shm
+backups/
+.pw-restore.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 编辑器和系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 截图（想发布就删掉这行）
+# shots/

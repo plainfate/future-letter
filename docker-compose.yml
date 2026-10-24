@@ -1,0 +1,28 @@
+# 没有 systemd 的机器（群晖、威联通、容器、WSL、macOS、Windows + Docker）
+# 用这个：
+#
+#   docker compose up -d
+#
+# 数据存在 ./data 目录，删容器不丢数据。
+
+services:
+  future-letter:
+    image: python:3.11-slim
+    container_name: future-letter
+    restart: unless-stopped
+    working_dir: /app
+    command: python3 app.py
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./:/app
+      - ./data:/app/store-data
+    environment:
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python3", "-c",
+             "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9000/login', timeout=5)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

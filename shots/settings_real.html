@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>去往未来</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2efe6'/%3E%3Cpath d='M8 11h16v12H8z' fill='none' stroke='%238d7fb8' stroke-width='2'/%3E%3Cpath d='M8 11l8 7 8-7' fill='none' stroke='%238d7fb8' stroke-width='2'/%3E%3C/svg%3E">
+<style>:root{--bg:#f2efe6;--wash1:rgba(168,158,214,0.42);--wash2:rgba(146,180,200,0.36);--wash3:rgba(214,166,168,0.30);--wash4:rgba(176,196,160,0.28);--card:rgba(255,253,247,0.72);--card-hover:rgba(255,254,250,0.94);--ink:#3b3a4a;--ink-soft:#6b6879;--ink-faint:#98939f;--line:rgba(107,104,121,0.20);--accent:#8d7fb8;--accent-ink:#5c4f84;--sealed-bg:rgba(255,252,245,0.66);--shadow:0 4px 22px rgba(107,104,121,0.10);--shadow-hover:0 8px 30px rgba(107,104,121,0.17);--font:"Songti SC","Source Han Serif SC","Noto Serif CJK SC","Noto Serif SC","STSong","SimSun",Georgia,serif;}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.78 var(--font);
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 70% 55% at 8% 4%,var(--wash1) 0,transparent 62%),
+    radial-gradient(ellipse 60% 48% at 94% 12%,var(--wash2) 0,transparent 60%),
+    radial-gradient(ellipse 64% 52% at 22% 92%,var(--wash3) 0,transparent 64%),
+    radial-gradient(ellipse 56% 46% at 86% 88%,var(--wash4) 0,transparent 62%);
+  background-attachment:fixed;background-repeat:no-repeat}
+.wrap{max-width:820px;margin:0 auto;padding:26px 20px 64px}
+
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  flex-wrap:wrap;padding-bottom:13px;margin-bottom:22px;
+  border-bottom:1px solid var(--line)}
+h1.brand{font-size:19px;margin:0;letter-spacing:.16em;font-weight:600}
+h1.brand a{color:var(--ink);text-decoration:none}
+nav.main{display:flex;gap:1px;flex-wrap:wrap}
+nav.main a{color:var(--ink-soft);text-decoration:none;font-size:13.5px;
+  letter-spacing:.05em;padding:5px 8px;border-radius:7px;
+  transition:color .15s,background .15s}
+nav.main a:hover,nav.main a.on{color:var(--accent-ink);background:var(--card)}
+
+.dateline{display:flex;flex-wrap:wrap;gap:5px 13px;align-items:baseline;
+  color:var(--ink-soft);font-size:13px;letter-spacing:.04em;margin:-4px 0 22px;
+  padding:10px 14px;border-radius:11px;background:var(--card);
+  border:1px solid var(--line)}
+.dateline b{color:var(--ink);font-size:14px;font-weight:600;letter-spacing:.06em}
+.dateline .fest{color:var(--accent-ink);font-weight:600}
+
+.card{display:block;padding:16px 18px;margin-bottom:11px;border-radius:13px;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);
+  text-decoration:none;color:inherit;
+  transition:transform .18s,box-shadow .18s,background .18s,border-color .18s}
+a.card:hover{background:var(--card-hover);box-shadow:var(--shadow-hover);
+  transform:translateY(-2px);border-color:var(--accent)}
+.card h2{margin:0 0 5px;font-size:17.5px;font-weight:600;line-height:1.55}
+.card h3{margin:0 0 4px;font-size:15px;font-weight:600;line-height:1.5}
+.meta{color:var(--ink-faint);font-size:12.5px;letter-spacing:.04em}
+.locked{border-style:dashed;box-shadow:none;opacity:.88}
+.locked h2::after{content:" · 未解锁";font-size:11.5px;font-weight:400;
+  color:var(--ink-faint);letter-spacing:.08em}
+.locked .cd{color:var(--accent-ink);font-size:12.5px;margin-top:2px}
+
+.sealed{padding:48px 24px;text-align:center;border-radius:16px;
+  background:var(--sealed-bg);border:1px dashed var(--line);box-shadow:var(--shadow)}
+.sealed .mark{font-size:32px;line-height:1;margin-bottom:18px;opacity:.7}
+.sealed h2{font-size:20px;margin:0 0 9px;font-weight:600}
+.sealed .cd{color:var(--accent-ink);font-size:14px;margin-top:18px;
+  letter-spacing:.1em}
+
+article .letter{font-size:17px;line-height:2.15;white-space:pre-wrap;
+  word-wrap:break-word;padding:4px 0 24px}
+h2.page{font-size:19.5px;margin:0 0 6px;font-weight:600;letter-spacing:.04em}
+h2.page.sub{margin-top:32px}
+p.lead{color:var(--ink-soft);font-size:13.5px;margin:0 0 6px;letter-spacing:.02em}
+hr.thin{border:0;border-top:1px solid var(--line);margin:16px 0 6px}
+
+label{display:block;font-size:12.5px;color:var(--ink-soft);margin:18px 0 6px;
+  letter-spacing:.06em}
+input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);
+  font:inherit;font-size:15px;transition:border-color .16s,background .16s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);
+  background:var(--card-hover)}
+textarea{min-height:180px;resize:vertical;line-height:1.9}
+textarea.tall{min-height:300px}
+button{margin-top:20px;padding:10px 24px;border-radius:10px;border:0;
+  background:var(--accent);color:#fff;font:inherit;font-size:15px;font-weight:600;
+  cursor:pointer;letter-spacing:.08em;transition:filter .16s,transform .16s}
+button:hover{filter:brightness(1.07);transform:translateY(-1px)}
+button.ghost{background:transparent;border:1px solid var(--line);
+  color:var(--ink-soft);font-weight:400;font-size:13px;padding:7px 14px;
+  margin-top:22px}
+button.ghost:hover{background:var(--card);color:var(--accent-ink);filter:none;
+  transform:none}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 170px}
+.err{color:#b5544a;font-size:13px;margin-top:12px}
+.ok{color:var(--accent-ink);font-size:13px;margin-top:12px}
+.hint{color:var(--ink-faint);font-size:12px;margin-top:5px;line-height:1.7}
+.empty{color:var(--ink-soft);text-align:center;padding:52px 18px;line-height:2;
+  font-size:15px}
+.tag{display:inline-block;font-size:11.5px;letter-spacing:.05em;padding:2px 9px;
+  border-radius:99px;background:var(--card);border:1px solid var(--line);
+  color:var(--ink-soft);margin-right:5px}
+
+.item{padding:12px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item a.title{color:var(--ink);text-decoration:none;font-size:15.5px;line-height:1.6}
+.item a.title:hover{color:var(--accent-ink);text-decoration:underline;
+  text-decoration-thickness:1px;text-underline-offset:3px}
+.item .src{color:var(--ink-faint);font-size:12px;margin-top:2px;letter-spacing:.03em}
+
+.count-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:10px;margin-top:5px}
+.count-card{padding:14px;border-radius:13px;background:var(--card);
+  border:1px solid var(--line);box-shadow:var(--shadow)}
+.count-card .n{font-size:29px;line-height:1.15;color:var(--accent-ink);
+  font-weight:600;letter-spacing:.01em}
+.count-card .n small{font-size:13px;font-weight:400;margin-left:2px}
+.count-card .t{font-size:13.5px;color:var(--ink);margin-top:4px}
+.count-card .d{font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+.count-card.today{border-color:var(--accent)}
+
+.quote{padding:36px 26px;border-radius:16px;background:var(--sealed-bg);
+  border:1px solid var(--line);box-shadow:var(--shadow);text-align:center;
+  margin-bottom:16px}
+.quote .body{font-size:22px;line-height:1.85;letter-spacing:.02em;
+  margin:0 0 16px;text-wrap:balance}
+.quote .body.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;
+  font-size:21px;line-height:1.8}
+.quote .author{color:var(--ink-soft);font-size:14px;letter-spacing:.06em}
+.quote .source{color:var(--ink-faint);font-size:12px;margin-top:4px;
+  letter-spacing:.04em}
+.quote .lang-tag{display:inline-block;font-size:11px;letter-spacing:.1em;
+  color:var(--ink-faint);border:1px solid var(--line);border-radius:99px;
+  padding:1px 9px;margin-bottom:18px}
+
+.sys-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));
+  gap:10px;margin-top:8px}
+.sys-cell{padding:13px;border-radius:12px;background:var(--card);
+  border:1px solid var(--line)}
+.sys-cell .k{font-size:11.5px;color:var(--ink-faint);letter-spacing:.06em}
+.sys-cell .v{font-size:17px;color:var(--ink);margin-top:3px;font-weight:600;
+  letter-spacing:.01em}
+.sys-cell .v small{font-size:11.5px;font-weight:400;color:var(--ink-faint)}
+.bar{height:5px;border-radius:99px;background:var(--line);margin-top:8px;
+  overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--accent);
+  transition:width .3s}
+
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:11px;margin-top:8px}
+.theme-pick{position:relative;display:block;padding:14px;border-radius:13px;
+  border:1px solid var(--line);background:var(--card);cursor:pointer;
+  transition:border-color .16s,transform .16s}
+.theme-pick:hover{transform:translateY(-2px);border-color:var(--accent)}
+.theme-pick input{position:absolute;opacity:0;pointer-events:none}
+.theme-pick.on{border-color:var(--accent);border-width:2px;padding:13px}
+.theme-pick .sw{display:flex;gap:4px;margin-bottom:9px}
+.theme-pick .sw i{width:20px;height:20px;border-radius:50%;display:block;
+  border:1px solid rgba(0,0,0,.06)}
+.theme-pick .nm{font-size:14px;font-weight:600;letter-spacing:.03em}
+.theme-pick .ds{font-size:11.5px;color:var(--ink-soft);margin-top:3px;
+  line-height:1.6}
+
+footer{margin-top:46px;color:var(--ink-faint);font-size:11.5px;text-align:center;
+  letter-spacing:.14em}
+@media (max-width:600px){
+  .wrap{padding:20px 14px 56px}
+  body{font-size:15.5px}
+  h1.brand{font-size:17.5px}
+  nav.main a{font-size:13px;padding:5px 6px}
+  article .letter{font-size:16.5px;line-height:2.05}
+  .quote .body{font-size:19px}
+  .count-card .n{font-size:25px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><h1 class="brand"><a href="/">去往未来</a></h1><nav class="main"><a href="/">概览</a><a href="/letters">信</a><a href="/news">资讯</a><a href="/days">倒数</a><a href="/notes">手记</a><a href="/reading">待读</a><a href="/quotes">摘句</a><a href="/settings" class="on">设置</a></nav></header>
+<main>
+<h2 class="page">设置</h2>
+
+
+<form method="post" action="/settings/save">
+  <label for="stitle">站点名字</label>
+  <input id="stitle" name="site_title" maxlength="40" value="去往未来">
+  <label>配色</label>
+  <div class="themes"><label class="theme-pick on" onclick="pickTheme(this)"><input type="radio" name="theme" value="impression" checked><div class="sw"><i style="background:#f2efe6"></i><i style="background:rgba(168,158,214,0.42)"></i><i style="background:rgba(146,180,200,0.36)"></i><i style="background:#8d7fb8"></i></div><div class="nm">印象派 · 水彩</div><div class="ds">莫奈睡莲：米白纸底，淡紫雾蓝的晕染。</div></label><label class="theme-pick" onclick="pickTheme(this)"><input type="radio" name="theme" value="paper"><div class="sw"><i style="background:#faf6ef"></i><i style="background:rgba(214,196,168,0.22)"></i><i style="background:rgba(200,188,170,0.16)"></i><i style="background:#b5462f"></i></div><div class="nm">纸上书信</div><div class="ds">暖白信纸，墨黑宋体，一点朱砂红。</div></label><label class="theme-pick" onclick="pickTheme(this)"><input type="radio" name="theme" value="night"><div class="sw"><i style="background:#171b26"></i><i style="background:rgba(94,110,168,0.30)"></i><i style="background:rgba(70,96,130,0.26)"></i><i style="background:#7f93c9"></i></div><div class="nm">深夜台灯</div><div class="ds">深蓝黑底，暖白字，不用金色。</div></label></div>
+  <label for="feeds">资讯源（每行一个：名称 | RSS 地址）</label>
+  <textarea id="feeds" name="feeds" style="min-height:130px">36氪 | https://www.36kr.com/feed
+少数派 | https://sspai.com/feed
+Solidot | https://www.solidot.org/index.rss
+IT之家 | https://www.ithome.com/rss/
+开源中国 | https://www.oschina.net/news/rss</textarea>
+  <div class="hint">留空则恢复默认五个源：36氪、少数派、Solidot、IT之家、开源中国。</div>
+  <button type="submit">保存</button>
+</form>
+
+<script>
+function pickTheme(el) {
+  var all = document.querySelectorAll('.theme-pick');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('on');
+  el.classList.add('on');
+}
+</script>
+
+<h2 class="page sub">改密码</h2>
+<p class="lead">改完不用重新登录，但要记住新密码。</p>
+<form method="post" action="/settings/password">
+  <label for="oldpw">现在的密码</label>
+  <input id="oldpw" name="old" type="password" required
+         autocomplete="current-password">
+  <label for="newpw">新密码</label>
+  <input id="newpw" name="new" type="password" required minlength="6"
+         autocomplete="new-password">
+  <label for="newpw2">再输一次</label>
+  <input id="newpw2" name="confirm" type="password" required minlength="6"
+         autocomplete="new-password">
+  <button type="submit">改密码</button>
+</form>
+
+<h2 class="page sub">这台机器</h2>
+<p class="lead">信 0 · 日子 0 · 手记 0 · 待读 0 · 资讯 111</p>
+<div class="sys-grid"><div class="sys-cell"><div class="k">主机</div><div class="v">armbian</div></div><div class="sys-cell"><div class="k">系统</div><div class="v">Armbian 26.08.0</div></div><div class="sys-cell"><div class="k">运行时长</div><div class="v">6 小时 48 分</div></div><div class="sys-cell"><div class="k">CPU 核心</div><div class="v">4</div></div><div class="sys-cell"><div class="k">负载 1/5/15</div><div class="v">0.86 <small>/ 0.64 / 0.56</small></div></div><div class="sys-cell"><div class="k">CPU 温度</div><div class="v">52 <small>°C</small></div></div><div class="sys-cell"><div class="k">内存</div><div class="v">262 <small>/ 1788 MB</small><div class="bar"><i style="width:15%"></i></div></div></div><div class="sys-cell"><div class="k">磁盘</div><div class="v">1.8 <small>/ 6.4 GB</small><div class="bar"><i style="width:28%"></i></div></div></div><div class="sys-cell"><div class="k">本程序内存</div><div class="v">21 <small>MB</small></div></div><div class="sys-cell"><div class="k">数据库</div><div class="v">140 <small>KB</small></div></div></div>
+
+<h2 class="page sub">关于</h2>
+<div class="card">
+  <div class="meta">Python 3.11.2 · 零第三方依赖</div>
+  <div class="meta">内核 6.18.41-ophub · 监听 9000 端口 · 登录状态保持 30 天</div>
+  <div class="meta">所有内容都在 data.db 一个文件里，备份它就够了</div>
+  <div class="meta" style="margin-top:8px">
+    <a href="/logout" style="color:var(--accent-ink)">退出登录</a></div>
+</div>
+</main>
+<footer>写给未来 · 时间到了才会打开</footer>
+</div>
+</body>
+</html>
